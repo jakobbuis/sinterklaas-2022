@@ -44,13 +44,11 @@ foreach ($lots as $lot) {
 
     // Als er niemand is die dit lootje mag trekken, hebben we een probleem: begin overnieuw
     if (count($potentials) === 0) {
-        echo "Ongeldige oplossing, herstart" . PHP_EOL . PHP_EOL;
         goto restart;
     }
 
     // Wijs lootje toe aan een willekeurig persoon van de personen die het mogen trekken
     $drawee = array_rand($potentials);
-    echo "{$drawee} trekt {$lot} als primair lootje" . PHP_EOL;
     array_push($draws[$drawee], $lot);
 }
 
@@ -72,18 +70,11 @@ foreach ($lots as $lot) {
 
     // Als er niemand is die dit lootje mag trekken, hebben we een probleem: begin overnieuw
     if (count($potentials) === 0) {
-        echo "Ongeldige oplossing, herstart" . PHP_EOL . PHP_EOL;
         goto restart;
     }
 
     // Wijs lootje toe aan een willekeurig persoon van de personen die het mogen trekken
     $drawee = array_rand($potentials);
-    echo "{$drawee} trekt {$lot} als secundair lootje" . PHP_EOL;
     array_push($draws[$drawee], $lot);
 }
 echo PHP_EOL;
-
-// toon uitkomst
-foreach ($draws as $drawee => $lots) {
-    echo "{$drawee} heeft {$lots[0]} primair, secundair {$lots[1]} en {$lots[2]}" . PHP_EOL;
-}
