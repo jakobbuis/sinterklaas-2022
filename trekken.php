@@ -78,3 +78,9 @@ foreach ($lots as $lot) {
     array_push($draws[$drawee], $lot);
 }
 echo PHP_EOL;
+
+// Schrijf output naar bestanden
+foreach ($draws as $name => $lots) {
+    $output = "Primair: {$lots[0]}\nSecundair: {$lots[1]} en {$lots[2]}\n";
+    file_put_contents(strtolower($name) . '.txt', $output);
+}
