@@ -78,8 +78,18 @@ foreach ($lots as $lot) {
     array_push($draws[$drawee], $lot);
 }
 
-// Schrijf output naar bestanden
+// Genereer pincode per gebruiker
+$passwords = [];
+echo "Pincodes:" . PHP_EOL;
+foreach ($people as $name) {
+    $passwords[$name] = mt_rand(100_000, 999_999);
+    echo "{$name}: {$passwords[$name]}" . PHP_EOL;
+}
+
+// Schrijf output naar versleutelde ZIP-bestanden
 foreach ($draws as $name => $lots) {
     $output = "Primair: {$lots[0]}\nSecundair: {$lots[1]} en {$lots[2]}\n";
-    file_put_contents(strtolower($name) . '.txt', $output);
+    file_put_contents("{$name}.txt", $output);
+    system("zip -P {$passwords[$name]} {$name}.zip {$name}.txt");
+    unlink("{$name}.txt");
 }
