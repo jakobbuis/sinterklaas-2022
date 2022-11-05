@@ -60,7 +60,7 @@ for ($i = 0; $i < $lotsPerPerson - 1; $i++) {
 
 // Neem alle lootjes in de pot
 foreach ($lots as $lot) {
-    // Bepaal wie dit lootje kunnen trekken: heeft nog geen drie lootjes, en is niet een verboden match
+    // Bepaal wie dit lootje kunnen trekken: heeft nog geen drie lootjes, en is niet een verboden match, en heeft deze persoon nog niet eerder getrokken
     $potentials = array_filter($draws, function ($lotsDrawn, $name) use ($lot, $lotsPerPerson, $forbiddenMatches) {
         $hasFewerLotsThanLimit = (count($lotsDrawn) < $lotsPerPerson);
         $isForbiddenMatch = in_array($lot, $forbiddenMatches[$name]);
