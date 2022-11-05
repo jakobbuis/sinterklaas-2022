@@ -77,7 +77,6 @@ foreach ($lots as $lot) {
     $drawee = array_rand($potentials);
     array_push($draws[$drawee], $lot);
 }
-echo PHP_EOL;
 
 // Schrijf output naar bestanden
 foreach ($draws as $name => $lots) {
