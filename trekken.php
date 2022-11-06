@@ -27,7 +27,7 @@ $lotsPerPerson = 3;
 
 // Opruimen ZIP-files
 foreach ($people as $name) {
-    unlink("{$name}.zip");
+    unlink(__DIR__ . "/{$name}.zip");
 }
 
 restart: // marker voor als we overnieuw moeten beginnen
@@ -94,7 +94,7 @@ foreach ($people as $name) {
 // Schrijf output naar versleutelde ZIP-bestanden
 foreach ($draws as $name => $lots) {
     $output = "Primair: {$lots[0]}\nSecundair: {$lots[1]} en {$lots[2]}\n";
-    file_put_contents("{$name}.txt", $output);
+    file_put_contents(__DIR__ . "/{$name}.txt", $output);
     system("zip -P {$passwords[$name]} {$name}.zip {$name}.txt");
-    unlink("{$name}.txt");
+    unlink(__DIR__ . "/{$name}.txt");
 }
