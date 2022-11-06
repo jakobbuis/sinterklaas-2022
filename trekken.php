@@ -25,6 +25,11 @@ $forbiddenMatches = [
 // Aantal lootjes p.p.
 $lotsPerPerson = 3;
 
+// Opruimen ZIP-files
+foreach ($people as $name) {
+    unlink("{$name}.zip");
+}
+
 restart: // marker voor als we overnieuw moeten beginnen
 
 // bijhouden wie welke lootjes heeft
