@@ -14,12 +14,12 @@ $people = [
 // Mensen die elkaar niet mogen trekken
 $forbiddenMatches = [
     'Jakob' => ['Jakob'],
-    'Alies' => ['Alies', 'Paul'],
-    'Paul' => ['Paul', 'Alies'],
-    'Hermien' => ['Hermien', 'Tim'],
-    'Tim' => ['Tim', 'Hermien'],
-    'David' => ['David', 'Rosa'],
-    'Rosa' => ['Rosa', 'David'],
+    'Alies' => ['Alies'],
+    'Paul' => ['Paul'],
+    'Hermien' => ['Hermien'],
+    'Tim' => ['Tim'],
+    'David' => ['David'],
+    'Rosa' => ['Rosa'],
 ];
 
 // Aantal lootjes p.p.
